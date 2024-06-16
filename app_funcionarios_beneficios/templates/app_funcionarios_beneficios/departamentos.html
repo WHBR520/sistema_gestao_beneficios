@@ -1,0 +1,37 @@
+{% extends 'app_funcionarios_beneficios/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Departamentos</title>
+{% endblock %}
+
+
+{% block botoes %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+{% endblock %}
+
+
+{% block lista %}
+<div class="container_lista">
+   <h2 class="titulo_lista">Departamentos</h2>
+   <ul class="responsive-table">
+     <li class="table-header">
+       <div class="col col-1">Nome</div>
+       <div class="col col-2">Descrição</div>
+       <div class="col col-3">Setor</div>
+     </li>
+     {% for departamentos in departamentos %}
+     <li class="table-row">
+       <div class="col col-2" data-label="Customer Name">{{ departamentos.nome }}</div>
+       <div class="col col-3" data-label="Amount">{{ departamentos.descricao }}</div>
+       <div class="col col-3" data-label="Amount">{{ departamentos.setor }}</div>
+     </li>
+     {% endfor %}
+   </ul>
+ </div>    
+{% endblock %}

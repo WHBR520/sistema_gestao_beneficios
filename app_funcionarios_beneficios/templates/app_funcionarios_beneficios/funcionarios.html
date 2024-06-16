@@ -1,0 +1,33 @@
+{% extends 'app_funcionarios_beneficios/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Cadastro de Funcionários</title>
+{% endblock %}
+
+{% block botoes %}
+
+{% endblock %}
+
+{% block conteudo %}
+<form action="{% url 'listagem_funcionarios' %}" method="post" class="form"> {% csrf_token %}
+    <h2 class="titulo_form">Cadastro de Funcionários</h2>
+
+    <input type="text" placeholder="Nome" class="form__input"/>
+    <label for="nome" class="form__label">Nome</label>
+
+    <input type="tel" placeholder="Telefone" class="form__input"/>
+    <label for="telefone" class="form__label">Telefone</label>
+
+    
+    <input type="number" placeholder="ID" class="form__input"/>
+    <label for="id" class="form__label">ID (15ch)</label>
+
+    <button class="enviar">Enviar</button>
+</form>
+{% endblock %}
+
+{% block lista %}
+
+{% endblock %}

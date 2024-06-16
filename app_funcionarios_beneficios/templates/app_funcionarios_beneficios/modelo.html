@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}
+    <title>Modelo de paginas</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+</head>
+<body>
+    <!-- BLOCO DA NAV BAR -->
+    {% block nav %}
+    <nav>
+        <div>
+            <h1 class="titulo">TW Startup</h1>
+        </div>
+        <div class="links"><ul class="nav-itens">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'listagem_funcionarios' %}">Funcionários</a></li>
+            <li><a href="{% url 'listagem_beneficios' %}">Benefícios</a></li>
+            <li><a href="{% url 'departamentos' %}">Departamentos</a></li>
+        </ul>
+        </div>
+        <div class="botoes">
+            <button class="login">Login</button>
+            <button class="cadastro">Sign in</button>
+        </div>
+    </nav>
+    {% endblock %}
+
+    <!-- BLOCO DA IMAGEM -->
+    {% block destaque %}
+    <div class="imagem">
+        <img src="{% static 'imagens/header_maxident.jpg' %}">
+    </div>
+    {% endblock %}
+
+    {% block botoes %}
+    <div class="container_botoes">
+      <a href="{% url 'funcionarios' %}"><button>Cadastrar Novo Funcionário</button></a>
+      <a href="{% url 'listagem_funcionarios' %}"><button>Funcionários Cadastrados</button></a>
+      <a href="{% url 'beneficios' %}"><button>Adicionar Novo Benefício</button></a>
+      <a href="{% url 'listagem_beneficios' %}"><button>Benefícios Disponíveis</button></a>
+      <a href="{% url 'departamentos' %}"><button>Departamentos</button></a>
+    </div>
+    {% endblock %}
+
+    <!-- BLOCO DO CONTEUDO -  FORM   -->
+    <div class="container_form">
+    {% block conteudo %}
+    <h2 class="titulo_form">Cadastro</h2>
+    <form action="" method="post" class="form">
+      
+        <input type="text" placeholder="Name" class="form__input" id="name" />
+        <label for="name" class="form__label">Name</label>
+     
+        <button class="enviar">Salvar</button>
+      </form>
+    {% endblock %}
+    </div>
+
+    <!-- BLOCO DE LISTAS -->
+     {% block lista %}
+     <div class="container_lista">
+        <h2 class="titulo_lista">Lista de X</h2>
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">ID</div>
+            <div class="col col-2">Nome</div>
+            <div class="col col-3">Gênero</div>
+          </li>
+          {% for funcionario in funcionarios%}
+          <li class="table-row">
+            <div class="col col-1" data-label="Job Id">{{ funcionario.id }}</div>
+            <div class="col col-2" data-label="Customer Name">{{ funcionario.nome }}</div>
+            <div class="col col-3" data-label="Amount">{{ funcionario.genero }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>    
+    {% endblock %}
+
+
+    <!-- BLOCO DO RODAPE -->
+    {% block rodape %}
+    <footer class="rodape">
+        <h3>Links de Apoio</h3>
+        <ul>
+            <li><a href="https://coolors.co">Coolors</a> - paleta de cores</li>
+            <li><a href="https://br.pinterest.com">Pinterest</a> - header</li>
+            <li><a href="https://fonts.google.com">Google Fonts</a> - fontes de texto</li>
+            <li><a href="https://freefrontend.com/">Free Front-End</a> - css do formulário e lista</li>
+        </ul>
+    </footer>
+    {% endblock %}
+</body>
+</html>

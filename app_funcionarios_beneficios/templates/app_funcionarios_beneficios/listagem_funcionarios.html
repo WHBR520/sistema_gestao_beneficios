@@ -1,0 +1,35 @@
+{% extends 'app_funcionarios_beneficios/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Funcionários Cadastrados</title>
+{% endblock %}
+
+{% block botoes %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+{% endblock %}
+
+{% block lista %}
+<div class="container_lista">
+   <h2 class="titulo_lista">Lista de Funcionarios</h2>
+   <ul class="responsive-table">
+     <li class="table-header">
+       <div class="col col-1">ID</div>
+       <div class="col col-2">Nome</div>
+       <div class="col col-3">Gênero</div>
+     </li>
+     {% for funcionario in funcionarios%}
+     <li class="table-row">
+       <div class="col col-1" data-label="Job Id">{{ funcionario.id }}</div>
+       <div class="col col-2" data-label="Customer Name">{{ funcionario.nome }}</div>
+       <div class="col col-3" data-label="Amount">{{ funcionario.genero }}</div>
+     </li>
+     {% endfor %}
+   </ul>
+ </div>    
+{% endblock %}

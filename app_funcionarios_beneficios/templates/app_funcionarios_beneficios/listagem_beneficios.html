@@ -1,0 +1,35 @@
+{% extends 'app_funcionarios_beneficios/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Benefícios Disponíveis</title>
+{% endblock %}
+
+
+{% block botoes %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+{% endblock %}
+
+
+{% block lista %}
+<div class="container_lista">
+   <h2 class="titulo_lista">Lista de Benefícios</h2>
+   <ul class="responsive-table">
+     <li class="table-header">
+       <div class="col col-1">Nome</div>
+       <div class="col col-2">Valor</div>
+     </li>
+     {% for beneficio in beneficios %}
+     <li class="table-row">
+       <div class="col col-2" data-label="Customer Name">{{ beneficio.nome }}</div>
+       <div class="col col-3" data-label="Amount">{{ beneficio.valor }}</div>
+     </li>
+     {% endfor %}
+   </ul>
+ </div>    
+{% endblock %}

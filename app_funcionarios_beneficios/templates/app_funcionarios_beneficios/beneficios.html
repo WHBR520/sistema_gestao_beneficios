@@ -1,0 +1,29 @@
+{% extends 'app_funcionarios_beneficios/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Adicionar Novo Benefício</title>
+{% endblock %}
+
+{% block botoes %}
+
+{% endblock %}
+
+{% block conteudo %}
+<form action="{% url 'listagem_beneficios' %}" method="post" class="form"> {% csrf_token %}
+    <h2 class="titulo_form">Adicionar Novo beneficio</h2>
+
+    <input type="text" placeholder="Nome" class="form__input"/>
+    <label for="nome" class="form__label">Nome</label>
+    
+    <input type="number" placeholder="Valor" class="form__input"/>
+    <label for="valor" class="form__label">Valor: R$</label>
+
+    <button class="enviar">Enviar</button>
+</form>
+{% endblock %}
+
+{% block lista %}
+
+{% endblock %}
