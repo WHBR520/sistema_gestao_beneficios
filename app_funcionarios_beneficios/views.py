@@ -8,15 +8,15 @@ from .models import Beneficios, Departamentos, Funcionarios
 def modelo_view(request):
     funcionarios = Funcionarios.objects.all()
     print(funcionarios)
-    return render(request, 'app_funcionarios_beneficios/modelo.html', {"funcionarios": funcionarios})
+    return render(request, 'app_funcionarios_beneficios/modelo', {"funcionarios": funcionarios})
 
 def index_view(request):
-    return render(request, 'app_funcionarios_beneficios/index.html', {})
+    return render(request, 'app_funcionarios_beneficios/index', {})
 
 def funcionarios_view(request):
     funcionarios = Funcionarios.objects.all()
     print(funcionarios)
-    return render(request, 'app_funcionarios_beneficios/funcionarios.html', {"funcionarios": funcionarios})
+    return render(request, 'app_funcionarios_beneficios/funcionarios', {"funcionarios": funcionarios})
 
 def listagem_funcionarios(request):
     novo_funcionario = Funcionarios()
@@ -28,11 +28,11 @@ def listagem_funcionarios(request):
     funcionarios = {
         'funcionarios': Funcionarios.objects.all()
 }
-    return render(request, 'app_funcionarios_beneficios/listagem_funcionarios.html', funcionarios)
+    return render(request, 'app_funcionarios_beneficios/listagem_funcionarios', funcionarios)
 
 def beneficios_view(request):
     beneficios = Beneficios.objects.all()
-    return render(request, 'app_funcionarios_beneficios/beneficios.html', {"beneficios": beneficios})
+    return render(request, 'app_funcionarios_beneficios/beneficios', {"beneficios": beneficios})
 
 def listagem_beneficios(request):
     novo_beneficio = Beneficios()
@@ -43,8 +43,8 @@ def listagem_beneficios(request):
     beneficios = {
         'beneficios': Beneficios.objects.all()
 }
-    return render(request, 'app_funcionarios_beneficios/listagem_beneficios.html', beneficios)
+    return render(request, 'app_funcionarios_beneficios/listagem_beneficios', beneficios)
 
 def departamentos_view(request):
     departamentos = Departamentos.objects.all()
-    return render(request, 'app_funcionarios_beneficios/departamentos.html', {"departamentos": departamentos})
+    return render(request, 'app_funcionarios_beneficios/departamentos', {"departamentos": departamentos})
